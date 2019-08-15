@@ -52,7 +52,7 @@ done
 [[ -z $MATCH ]] && echo -e "missing MATCH" && exit 100
 
 nodeName=$(kubectl get pod ${POD} -n ${NAMESPACE} -o jsonpath='{.spec.nodeName}')
-kubectl create -f - <<EOF
+kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Pod
 metadata:
